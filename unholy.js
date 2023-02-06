@@ -10,7 +10,7 @@ class unholy {
         const length = this.code.length
         let pos = 0
         let tokens = []
-        const BUILT_IN_KEYWORDS = ["systemutilsunholycoutputtext", "systemutilsunholycaddnumbers", "systemutilsunholycsubtractnumbers", "systemutilsunholycsetvariable", "systemutilsunholycgetvariable"]
+        const BUILT_IN_KEYWORDS = ["systemutilsunholycoutputtext", "systemutilsunholycaddnumbers", "systemutilsunholycsubtractnumbers", "systemutilsunholycsetvariable", "systemutilsunholycgetvariable", "systemutilsunholycmultiplynumbers"]
         const varChars='abcdefghijklmnopqrstuvwxyz~'
         const numbers='1234567890'
         while (pos < length) {
@@ -152,9 +152,21 @@ class unholy {
                 }
                 console.log("???????")
                 pos += 2
-            } else {
-                return console.log(`Unexpected token ${token.type}`)
+            } else if (token.type === "keyword" && token.value === "systemutilsunholycmultiplynumbers") {
+                if (!tokens[pos + 1]) {
+                    return console.log("Unexpected EOL, expected a number")
+                }
+                let isNum = tokens[pos + 1].type === "number"
+                if(!isNum) {
+                    return console.log(`expected number`)
+                }
+                console.log('\x1b[35m%s\x1b[0m', (Number(tokens[pos + 1].value[0]) * Number(tokens[pos+1].value[1])).toString())
+
+                pos += 2
             }
+              else {
+                return console.log(`Unexpected token ${token.type}`)
+            } 
         }
     }
     run() {
