@@ -16,7 +16,10 @@ class unholy {
         while (pos < length) {
             let currentChar = this.code[pos]
             // if its "space" or newline then continue
-            if(currentChar === "_" || currentChar === "\n" || currentChar === "|" || currentChar === "\r") {
+            if(currentChar === "\n") {
+                return console.log("NEWLINES ARE NOT ALLOWED IN UNHOLY C --")
+            }
+            if(currentChar === "_" || currentChar === "|" || currentChar === "\r") {
                 pos++
                 continue
             } else if (currentChar === '*') {
@@ -29,7 +32,7 @@ class unholy {
                 }
                 if (this.code[pos] !== '*') {
                     return {
-                        error: 'didnt finish the string retard'
+                        error: 'didnt finish the string'
                     }
                 }
                 pos++
