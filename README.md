@@ -37,9 +37,13 @@ systemutilsunholycgetvariable_*a*
 ```
 
 ## Description and Detailed Syntax
+
+The reason Unholy C was created, was to be as horrible and impractical as possible. My goal when creating it was not to follow the KISS principles, not to make the syntax easy to read, it was to make anyone who decides to program in it miserable.
+The code for the interpreter is horrible, writing in Unholy C is horrible, and overall the language is horrible. Here is why:
+
 Unholy C has next to no error logging (and most errors are very indescriptive), so it is important that you follow syntax rules.
 
-Ignored characters are `| and _`. This means that you cannot use spaces in Unholy C. All code must be written in one line, newlines are not allowed therefore to seperate your code you can use the `|` character. An error will be thrown if you do put a new line, as the lexer cannot read newlines (feature).
+Ignored characters are `| and _`. This means that you cannot use spaces in Unholy C. All code must be written in one line, as newlines are not allowed. Therefore to seperate your code you can use the `|` character. An error will be thrown if you do put a new line, as the lexer cannot read newlines (feature).
 
 To write a string, you must use asterisks rather than quotes. An example of a string is `*hello, world!*`
 In most functions which use strings, you put an _ after the function (no brackets etc.), and then the argument you want to pass into the function.
