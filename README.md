@@ -59,3 +59,5 @@ Pull requests are welcome. Feel free to update or fix bug throughout the compile
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+**written with the suckmore philosophy in mind**
